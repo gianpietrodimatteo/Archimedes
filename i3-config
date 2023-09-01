@@ -175,18 +175,15 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # System management
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
+set $mode_system System (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
-  bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym p exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym e exec --no-startup-id xfce4-session-logout --fast --logout, mode "default"
+    bindsym s exec --no-startup-id xfce4-session-logout --fast --suspend, mode "default"
+    bindsym h exec --no-startup-id xfce4-session-logout --fast --hibernate, mode "default"
+    bindsym r exec --no-startup-id xfce4-session-logout --fast --reboot, mode "default"
+    bindsym p exec --no-startup-id xfce4-session-logout --fast --halt, mode "default"
 
-    bindsym t exec --no-startup-id echo "hello world", mode "default"
-
-# back to normal: Enter or Escape
+    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -219,18 +216,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# application launcher
 bindsym $mod+d exec xfce4-appfinder
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3status
-# }
-
-# Transparency with picom compositor
-# exec_always picom -f
-
-# default gaps
+# gap sizes
 gaps inner 15
 
 gaps outer 5
@@ -262,5 +251,6 @@ for_window [title="note"] move to workspace $ws2
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qjackctl"] floating enable border normal
 for_window [class="Xfce4-appfinder"] floating enable resize set height 500 move position center
+for_window [class="Klavaro"] floating enable resize set height 500 move position center
 
 

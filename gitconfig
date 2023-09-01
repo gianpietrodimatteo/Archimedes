@@ -1,0 +1,61 @@
+[core]
+  editor = vim
+[pager]
+  branch = false
+[alias]
+  co = checkout
+  cob = checkout -b
+  back = checkout -
+  b = branch
+  c = commit
+  ca = commit --amend
+  s = status
+  v = status -vv
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  mt = mergetool
+  sa = stash
+  df = diff
+  cp = cherry-pick
+  p = pull
+  ps = push
+  pr = pull --rebase
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  logan = log --pretty="format:%h %G? %aN %s"
+  rw = checkout HEAD~
+  bk = checkout HEAD@{1}
+  rollback = rebase -i HEAD~
+  fap = fetch --all --tags --prune
+  fa = fetch --all --tags
+  cm = commit -m
+  a = add .
+  po = push -u origin
+  pom = push -u origin master
+  e = config user.email
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  skip = update-index --skip-worktree
+  unskip = update-index --no-skip-worktree
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+  skipped = "!git ls-files -v | grep ^S | cut -c 3-"
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
+  when = log -S
+  delete-local-merged = "!git fap && git branch --merged | egrep -v 'master|dev|main|staging|develop' >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches"
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[pull]
+	rebase = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	name = Gianpietro Di Matteo
