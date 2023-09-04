@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make sure time synchronization is on (it's best to use UTC)
+timedatectl set-ntp true 
+
 # Starts by upgrading and installing the system's dependencies
 sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     nm-connection-editor network-manager-applet kitty i3 git nano gvim \
