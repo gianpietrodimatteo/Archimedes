@@ -1,0 +1,100 @@
+{
+  "window.menuBarVisibility": "toggle",
+  "security.workspace.trust.untrustedFiles": "open",
+  // vim-cutlass implementation
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    },
+    {
+      "before": ["c", "c"],
+      "after": ["\"", "_", "c", "c"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["X"],
+      "after": ["\"", "_", "X"]
+    },
+    // "move"/"cut" remap
+    {
+      "before": ["m"],
+      "after": ["d"]
+    },
+    {
+      "before": ["m", "m"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["M"],
+      "after": ["D"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["m"],
+      "after": ["d"]
+    }
+  ],
+  "keyboard.dispatch": "keyCode",
+  "vim.handleKeys": {
+    "<C-v>": false,
+    "<C-d>": false,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-k>": false,
+    "<C-w>": false,
+    "<C-m>": false,
+    "<C-n>": false,
+    "<C-b>": false,
+    "<C-x>": false,
+    "<C-]>": false,
+    "<C-[>": false,
+    "<C-j>": false,
+    "<C-f>": false,
+    "<C-g>": false
+  },
+  "editor.autoClosingBrackets": "never",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "vim.useSystemClipboard": true,
+  "editor.autoClosingQuotes": "never",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.autoSave": "onFocusChange",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"]
+}

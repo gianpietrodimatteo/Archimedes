@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make sure time synchronization is on (it's best to use UTC)
-timedatectl set-ntp true 
+timedatectl set-ntp true
 
 # Starts by upgrading and installing the system's dependencies
 sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
@@ -10,7 +10,7 @@ sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     lightdm-gtk-greeter-settings pulseaudio pulseaudio-bluetooth pavucontrol \
     bluez ack nitrogen tmux autoconf automake gcc github-cli bash-completion \
     gvfs gvfs-afc ntfs-3g picom ttf-fira-code neofetch base-devel reflector \
-    vi gimp klavaro noto-fonts-cjk evince
+    vi gimp klavaro noto-fonts-cjk evince ttf-joypixels usbutils
 
 # Configure reflector
 echo "Adjust reflector configuration for getting the best mirrors for you"
@@ -91,7 +91,7 @@ sudo pacman -Sy cups cups-pdf nss-mdns
 
 echo "Edit nsswitch.conf's 'hosts' to match the folowing line:"
 echo "hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns"
-sudo vim /etc/nsswitch.conf 
+sudo vim /etc/nsswitch.conf
 
 sudo systemctl enable --now avahi-daemon.service cups.service
 avahi-browse --all --ignore-local --resolve --terminate

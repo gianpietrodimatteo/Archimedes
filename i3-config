@@ -224,6 +224,17 @@ gaps inner 15
 
 gaps outer 5
 
+# toggle gaps
+
+set $mode_gaps Toggle gaps: (1) on (2) off
+bindsym $mod+g mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym 1 mode "default", gaps inner all set 15, gaps outer all set 5
+    bindsym 2 mode "default", gaps inner all set 1, gaps outer all set 1
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # -----------------------------------------------------------------------------
 # Initialization and assignments
 # -----------------------------------------------------------------------------
