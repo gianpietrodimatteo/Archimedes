@@ -8,15 +8,16 @@ sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     nm-connection-editor network-manager-applet kitty i3 git nano gvim \
     pacman-contrib xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter \
     lightdm-gtk-greeter-settings pulseaudio pulseaudio-bluetooth pavucontrol \
-    bluez ack nitrogen tmux autoconf automake gcc github-cli bash-completion \
+    bluez bluez-utils ack nitrogen tmux autoconf automake gcc github-cli bash-completion \
     gvfs gvfs-afc ntfs-3g picom ttf-fira-code neofetch base-devel reflector \
-    vi gimp klavaro noto-fonts-cjk evince ttf-joypixels usbutils
+    vi gimp klavaro noto-fonts-cjk evince ttf-joypixels usbutils intel-ucode fwupd
+
 
 # Configure reflector
 echo "Adjust reflector configuration for getting the best mirrors for you"
 sudo vim /etc/xdg/reflector/reflector.conf
 
-sudo systemctl enable --now lightdm.service NetworkManager.service reflector.timer
+sudo systemctl enable --now lightdm.service NetworkManager.service reflector.timer bluetooth.service
 
 mkdir -p ~/builds && cd ~/builds || exit
 
@@ -27,7 +28,7 @@ cd paru && makepkg -si
 paru i3ipc-glib
 paru i3-workspaces
 
-echo "Keyboard layout, add the layouts: En US, En US international, Pt Brazil Thinkpad (ABNT)"
+echo "Keyboard layout, add the layouts: En US, En US international, Portuguese (Brazil)"
 
 echo "Remove xfwm4 and xdesktop from session startup (set them to never)"
 echo "Add i3 to session startup"
