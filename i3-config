@@ -63,7 +63,9 @@ bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+# Window title and border style
 for_window [class="^.*"] border pixel
+bindsym $mod+t border toggle
 
 # vim keybindings
 set $left h
@@ -169,6 +171,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # toggle workspaces
 bindsym $mod+Tab workspace back_and_forth
 
+bindsym $mod+Shift+Tab workspace next
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -243,7 +247,7 @@ mode "$mode_gaps" {
 # Find the class name with xprop command
 # Find screen name with xrandr command
 
-assign [class="firefox"] $ws1
+# assign [class="firefox"] $ws1
 assign [class="code-oss"] $ws3
 assign [class="Gimp"] $ws4
 assign [class="Thunar"] $ws5
@@ -258,12 +262,18 @@ exec $term --title note -e sh -c "cd $NOTESPATH && vim -c CtrlP -c 'silent Toggl
 
 # Move classes and instances
 for_window [title="cmd"] move to workspace $ws2
-for_window [title="note"] move to workspace $ws2
+# for_window [title="note"] move to workspace $ws2
+for_window [title="note"] move scratchpad
 
 # Floating windows by default
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qjackctl"] floating enable border normal
 for_window [class="Xfce4-appfinder"] floating enable resize set height 500 move position center
 for_window [class="Klavaro"] floating enable resize set height 500 move position center
+
+# Go to window
+bindsym $mod+u [class="Google-chrome"] focus
+bindsym $mod+i [class="code-oss"] focus
+bindsym $mod+o [class="kitty"] focus
 
 

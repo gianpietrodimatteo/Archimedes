@@ -10,7 +10,8 @@ sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     lightdm-gtk-greeter-settings pulseaudio pulseaudio-bluetooth pavucontrol \
     bluez bluez-utils ack nitrogen tmux autoconf automake gcc github-cli bash-completion \
     gvfs gvfs-afc ntfs-3g picom ttf-fira-code neofetch base-devel reflector \
-    vi gimp klavaro noto-fonts-cjk evince ttf-joypixels usbutils intel-ucode fwupd
+    vi gimp klavaro noto-fonts-cjk okular ttf-joypixels usbutils intel-ucode fwupd \
+    baobab p7zip libnotify
 
 
 # Configure reflector
@@ -27,6 +28,7 @@ cd paru && makepkg -si
 
 paru i3ipc-glib
 paru i3-workspaces
+pary -y google-chrome
 
 echo "Keyboard layout, add the layouts: En US, En US international, Portuguese (Brazil)"
 
