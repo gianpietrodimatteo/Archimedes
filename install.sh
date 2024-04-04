@@ -11,7 +11,9 @@ sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     bluez bluez-utils ack nitrogen tmux autoconf automake gcc github-cli bash-completion \
     gvfs gvfs-afc ntfs-3g picom ttf-fira-code neofetch base-devel reflector \
     vi gimp klavaro noto-fonts-cjk okular ttf-joypixels usbutils intel-ucode fwupd \
-    baobab p7zip libnotify
+    baobab p7zip libnotify dnsmasq blueman evolution gnome-contacts jdk-openjdk \
+    jdk8-openjkd jdk11-openjdk jdk17-openjdk maven intellij-idea-community-edition \
+    postgresql krita inkscape xf86-input-wacom
 
 
 # Configure reflector
@@ -28,7 +30,9 @@ cd paru && makepkg -si
 
 paru i3ipc-glib
 paru i3-workspaces
-pary -y google-chrome
+paru -y google-chrome
+paru -Sy postman-bin
+paru -Sy etcher-bin
 
 echo "Keyboard layout, add the layouts: En US, En US international, Portuguese (Brazil)"
 
@@ -96,7 +100,7 @@ echo "Edit nsswitch.conf's 'hosts' to match the folowing line:"
 echo "hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns"
 sudo vim /etc/nsswitch.conf
 
-sudo systemctl enable --now avahi-daemon.service cups.service
+sudo systemctl enable --now avahi-daemon.service cups.service dnsmasq.service
 avahi-browse --all --ignore-local --resolve --terminate
 
 # Finally, reboot

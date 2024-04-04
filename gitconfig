@@ -59,3 +59,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [user]
 	name = Gianpietro Di Matteo
+[init]
+	defaultBranch = main
