@@ -95,6 +95,9 @@ rmLn "$(pwd)/picom.conf" ~/.config/picom.conf
 # Git config
 rmLn "$(pwd)/gitconfig" ~/.gitconfig
 
+# Bashrc system specific configurations
+rmLn "$(pwd)/bash_system" ~/.bash_system
+
 # Set up wifi printer
 sudo pacman -Sy cups cups-pdf nss-mdns
 
