@@ -12,9 +12,9 @@ sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     gvfs gvfs-afc ntfs-3g picom ttf-fira-code neofetch base-devel reflector \
     vi gimp klavaro noto-fonts-cjk okular ttf-joypixels usbutils intel-ucode fwupd \
     baobab p7zip libnotify dnsmasq blueman evolution gnome-contacts jdk-openjdk \
-    jdk8-openjkd jdk11-openjdk jdk17-openjdk maven intellij-idea-community-edition \
-    postgresql krita inkscape xf86-input-wacom
-
+    jdk8-openjkd jdk11-openjdk jdk17-openjdk jdk21-openjdk maven intellij-idea-community-edition \
+    postgresql krita inkscape xf86-input-wacom gnome-keyring libsecret seahorse \
+    galculator glib groff less unzip
 
 # Configure reflector
 echo "Adjust reflector configuration for getting the best mirrors for you"
@@ -33,6 +33,8 @@ paru i3-workspaces
 paru -y google-chrome
 paru -Sy postman-bin
 paru -Sy etcher-bin
+paru -Sy xsetwacom
+paru -Sy visual-studio-code-bin
 
 echo "Keyboard layout, add the layouts: En US, En US international, Portuguese (Brazil)"
 
@@ -103,5 +105,10 @@ sudo vim /etc/nsswitch.conf
 sudo systemctl enable --now avahi-daemon.service cups.service dnsmasq.service
 avahi-browse --all --ignore-local --resolve --terminate
 
+# xsession errors dirty fix
+rm ~/.xsession-errors
+ln -s /dev/null ~/.xsession-errors
+
 # Finally, reboot
 reboot
+

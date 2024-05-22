@@ -67,6 +67,9 @@ bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 for_window [class="^.*"] border pixel
 bindsym $mod+t border toggle
 
+# Disable focus wrapping
+focus_wrapping no
+
 # vim keybindings
 set $left h
 set $down j
@@ -250,14 +253,15 @@ mode "$mode_gaps" {
 # assign [class="firefox"] $ws1
 assign [class="code-oss"] $ws3
 assign [class="Gimp"] $ws4
+assign [class="krita"] $ws4
 assign [class="jetbrains-idea-ce"] $ws4
 assign [class="Thunar"] $ws5
 
 # Startup Executions
 exec google-chrome-stable
 # exec $term -n cmd -e tmux
-exec $term --title cmd
-exec code
+# exec $term --title cmd
+# exec code
 
 exec $term --title note -e sh -c "cd $NOTESPATH && vim -c CtrlP -c 'silent ToggleAutosave'"
 
@@ -269,8 +273,11 @@ for_window [title="note"] move scratchpad
 # Floating windows by default
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qjackctl"] floating enable border normal
+for_window [class="Galculator"] floating enable
 for_window [class="Xfce4-appfinder"] floating enable resize set height 500 move position center
+for_window [class="Xfce4-taskmanager"] floating enable
 for_window [class="Klavaro"] floating enable resize set height 500 move position center
+for_window [class="Blueman-manager"] floating enable resize set height 500 move position center
 
 # Go to window
 bindsym $mod+u [class="Google-chrome"] focus
