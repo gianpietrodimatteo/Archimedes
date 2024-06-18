@@ -244,6 +244,8 @@ mode "$mode_gaps" {
     bindsym Escape mode "default"
 }
 
+bindsym Print exec xfce4-screenshooter -r
+
 # -----------------------------------------------------------------------------
 # Initialization and assignments
 # -----------------------------------------------------------------------------

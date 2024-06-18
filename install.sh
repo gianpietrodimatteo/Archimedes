@@ -14,7 +14,7 @@ sudo pacman -Syu --needed git firefox code rclone libreoffice networkmanager \
     baobab p7zip libnotify dnsmasq blueman evolution gnome-contacts jdk-openjdk \
     jdk8-openjkd jdk11-openjdk jdk17-openjdk jdk21-openjdk maven intellij-idea-community-edition \
     postgresql krita inkscape xf86-input-wacom gnome-keyring libsecret seahorse \
-    galculator glib groff less unzip
+    galculator glib groff less unzip fbreader xfce4-screenshooter
 
 # Configure reflector
 echo "Adjust reflector configuration for getting the best mirrors for you"
